@@ -1,0 +1,53 @@
+{
+  "name": "chalk-mobile",
+  "version": "0.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "test": "jest",
+    "checks": "yarn check:lint && yarn check:format && yarn check:types",
+    "check:lint": "eslint 'src/**/*.{ts,tsx}'",
+    "check:format": "prettier --check 'src/**/*.{ts,tsx}'",
+    "check:types": "tsc"
+  },
+  "dependencies": {
+    "expo": "^33.0.6",
+    "react": "^16.8.3",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
+    "react-spring": "^9.0.0-beta.21",
+    "styled-components": "^4.3.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
+    "@types/expo": "^32.0.13",
+    "@types/jest": "^24.0.15",
+    "@types/react": "^16.8.20",
+    "@types/react-native": "^0.57.63",
+    "@types/styled-components": "^4.1.16",
+    "@typescript-eslint/eslint-plugin": "^1.10.2",
+    "@typescript-eslint/parser": "^1.10.2",
+    "babel-eslint": "^10.0.1",
+    "babel-preset-expo": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "jest": "^24.8.0",
+    "jest-expo": "^33.0.2",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "react-native-testing-library": "^1.9.1",
+    "react-test-renderer": "^16.8.6",
+    "typescript": "^3.5.2"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "private": true
+}
