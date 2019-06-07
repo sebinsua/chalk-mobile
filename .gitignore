@@ -1,0 +1,10 @@
+node_modules/**/*
+.expo/*
+npm-debug.*
+yarn-error.log
+*.jks
+*.p12
+*.key
+*.mobileprovision
+
+.vscode
