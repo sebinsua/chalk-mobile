@@ -1406,6 +1406,14 @@
   resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.5.3.tgz#1c3b71b091eaeaf5924538006b7f70603ce63d38"
   integrity sha512-Jugo5V/1bS0fRhy2z8+cUAHEyWOATaz4rbyLVvcFs7+dXp5HfwpEwzF1Q11bB10ApUqHf+yTauxI0UXQDwGrbA==
 
+"@types/react-native-snap-carousel@^3.7.2":
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/@types/react-native-snap-carousel/-/react-native-snap-carousel-3.7.2.tgz#e9754a88cf034cd022f1a93b03e8d9d6d2a33352"
+  integrity sha512-ydLH7+Xzd/maSnqhB3yCiAwa3IGN+j5hTMvhT4qzW9ZdoL3WyTK40Tu4PhVpfQYw/exwr3lGRFVjaA44vhvuhw==
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+
 "@types/react-native@*":
   version "0.57.60"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.57.60.tgz#61e97a84e2f64ed971e7d238bb30cec188898235"
@@ -6860,6 +6868,14 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-addons-shallow-compare@15.6.2:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/react-addons-shallow-compare/-/react-addons-shallow-compare-15.6.2.tgz#198a00b91fc37623db64a28fd17b596ba362702f"
+  integrity sha1-GYoAuR/DdiPbZKKP0XtZa6NicC8=
+  dependencies:
+    fbjs "^0.8.4"
+    object-assign "^4.1.0"
+
 react-clone-referenced-element@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-clone-referenced-element/-/react-clone-referenced-element-1.1.0.tgz#9cdda7f2aeb54fea791f3ab8c6ab96c7a77d0158"
@@ -6935,6 +6951,14 @@ react-native-screens@1.0.0-alpha.22:
   version "1.0.0-alpha.22"
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-1.0.0-alpha.22.tgz#7a120377b52aa9bbb94d0b8541a014026be9289b"
   integrity sha512-kSyAt0AeVU6N7ZonfV6dP6iZF8B7Bce+tk3eujXhzBGsLg0VSLnU7uE9VqJF0xdQrHR91ZjGgVMieo/8df9KTA==
+
+react-native-snap-carousel@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/react-native-snap-carousel/-/react-native-snap-carousel-3.8.0.tgz#9372222d61d37d0a8a3bec423d135d0caa1b7595"
+  integrity sha512-YtDZLv2Di77HfnH4yf+NyyYyISPNjrnjXDQLrzOkG9kkSlho/BROgHLQKGRLg3C2YSUMArFOePrb9CH3yeV5FA==
+  dependencies:
+    prop-types "^15.6.1"
+    react-addons-shallow-compare "15.6.2"
 
 react-native-svg@*, react-native-svg@9.4.0:
   version "9.4.0"
@@ -7056,11 +7080,6 @@ react-transform-hmr@^1.0.4:
   dependencies:
     global "^4.3.0"
     react-proxy "^1.1.7"
-
-react-use-gesture@^5.1.2:
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/react-use-gesture/-/react-use-gesture-5.1.2.tgz#3a43526c1174e97b20f966b86b6fb3ecc83dddb0"
-  integrity sha512-qOvwlru1avX6dRPHNWWJ1U6qoZf5ri6WohoIz3J3n0ieRJRzsbD1AO/bCuUgRklf6uwHnKCGzkdCgq5ilv7yRQ==
 
 react@^16.8.3:
   version "16.8.6"
