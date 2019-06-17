@@ -8,9 +8,24 @@ export const App = () => {
     <Container>
       <SnappableList
         data={[
-          { backgroundColor: 'red', content: 'R' },
-          { backgroundColor: 'green', content: 'G' },
-          { backgroundColor: 'blue', content: 'B' },
+          {
+            source: {
+              uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+              type: 'video',
+            },
+          },
+          {
+            source: {
+              uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+              type: 'video',
+            },
+          },
+          {
+            source: {
+              uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+              type: 'video',
+            },
+          },
         ]}
       />
     </Container>
