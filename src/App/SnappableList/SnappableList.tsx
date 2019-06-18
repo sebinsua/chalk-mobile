@@ -1,23 +1,22 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 import { Dimensions } from 'react-native';
 import Carousel, { CarouselStatic } from 'react-native-snap-carousel';
 
-import { Media } from './styles';
+import { Media } from '../Media';
+import { Source } from '../Source';
 
-type Page = Readonly<{
-  source: {
-    uri: string;
-    type: string;
-  };
-}>;
+export type Page = Readonly<{ id: number; source: Source }>;
 
-type SnappableListProps = Readonly<{
-  data: ReadonlyArray<Page>;
+export type Pages = ReadonlyArray<Page>;
+
+export type SnappableListProps = Readonly<{
+  data: Pages;
 }>;
 
 export const SnappableList = (props: SnappableListProps) => {
   const carouselRef = useRef<CarouselStatic<{}>>();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const viewport = Dimensions.get('window');
   return (
@@ -32,11 +31,12 @@ export const SnappableList = (props: SnappableListProps) => {
       inactiveSlideScale={1}
       renderItem={({ item, index }) => (
         <Media
+          id={item.id}
           source={item.source}
-          isMuted={0 !== index}
-          shouldPlay={0 === index}
+          isPlaying={currentIndex === index}
         />
       )}
+      onSnapToItem={index => setCurrentIndex(index)}
     />
   );
 };
