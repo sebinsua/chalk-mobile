@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { Dimensions, ImageBackground as _ImageBackground } from 'react-native';
 
+import { UserInterface } from '../UserInterface';
 import { TextContent } from './TextContent';
 import { useAudioPlayer } from './useAudioPlayer';
 
@@ -21,15 +22,19 @@ export const ImageMedia = ({ source, isPlaying }: ImageMediaProps) => {
   const imageSource = { uri: source.uri, width, height };
   return (
     <ImageBackground source={imageSource}>
-      {source.text ? (
-        <TextContent
-          style={source.text.textColor ? { color: source.text.textColor } : {}}
-        >
-          {source.text.content}
-        </TextContent>
-      ) : (
-        undefined
-      )}
+      <UserInterface>
+        {source.text ? (
+          <TextContent
+            style={
+              source.text.textColor ? { color: source.text.textColor } : {}
+            }
+          >
+            {source.text.content}
+          </TextContent>
+        ) : (
+          undefined
+        )}
+      </UserInterface>
     </ImageBackground>
   );
 };
