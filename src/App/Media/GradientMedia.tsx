@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { LinearGradient as _GradientBackground } from 'expo-linear-gradient';
 
+import { UserInterface } from '../UserInterface';
 import { TextContent } from './TextContent';
 import { useAudioPlayer } from './useAudioPlayer';
 
@@ -19,15 +20,19 @@ export const GradientMedia = ({ source, isPlaying }: GradientMediaProps) => {
 
   return (
     <GradientBackground colors={[...source.colors]}>
-      {source.text ? (
-        <TextContent
-          style={source.text.textColor ? { color: source.text.textColor } : {}}
-        >
-          {source.text.content}
-        </TextContent>
-      ) : (
-        undefined
-      )}
+      <UserInterface>
+        {source.text ? (
+          <TextContent
+            style={
+              source.text.textColor ? { color: source.text.textColor } : {}
+            }
+          >
+            {source.text.content}
+          </TextContent>
+        ) : (
+          undefined
+        )}
+      </UserInterface>
     </GradientBackground>
   );
 };

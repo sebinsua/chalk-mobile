@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { Video } from 'expo-av';
 
+import { UserInterface } from '../UserInterface';
 import { TextContent } from './TextContent';
 import { useVideoWithExternalAudioPlayer } from './useVideoWithExternalAudioPlayer';
 
@@ -30,17 +31,19 @@ export const VideoMedia = ({ source, isPlaying }: VideoMediaProps) => {
         style={{ width: '100%', height: '100%' }}
       />
       <VideoBackground>
-        {source.text ? (
-          <TextContent
-            style={
-              source.text.textColor ? { color: source.text.textColor } : {}
-            }
-          >
-            {source.text.content}
-          </TextContent>
-        ) : (
-          undefined
-        )}
+        <UserInterface>
+          {source.text ? (
+            <TextContent
+              style={
+                source.text.textColor ? { color: source.text.textColor } : {}
+              }
+            >
+              {source.text.content}
+            </TextContent>
+          ) : (
+            undefined
+          )}
+        </UserInterface>
       </VideoBackground>
     </>
   );
