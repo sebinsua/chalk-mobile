@@ -1,57 +1,73 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components/native';
 
-import { TouchableHighlight, GestureResponderEvent } from 'react-native';
-import { Avatar } from 'react-native-paper';
 import { FontAwesome } from '@expo/vector-icons';
+import { Marquee as _Marquee } from './Marquee';
 
-import { ImageSource } from '../Source';
+import { AvatarButton } from './AvatarButton';
+import { LikeButton } from './LikeButton';
 
-export type UserInterfaceProps = {
+export type UserInterfaceProps = Readonly<{
   children: ReactNode;
-};
-export type MenuProps = {
+}>;
+export type MenuProps = Readonly<{
   children: ReactNode;
-};
+}>;
 
+// TODO: Move into a Menu folder.
 const Menu = styled.View`
   position: absolute;
   bottom: 0;
   right: 0;
   height: 200;
-  padding-right: 25;
+  margin-bottom: 45px;
+  margin-right: 30px;
   justify-content: space-evenly;
 `;
 
-export type AvatarButtonProps = Readonly<{
-  source: ImageSource;
-  onPress?: (event: GestureResponderEvent) => void;
-}>;
-const AvatarImage = styled(Avatar.Image)`
-  box-shadow: 0px 0px 3px black;
+// TODO: Move into a Footer folder.
+const Footer = styled.View`
+  position: absolute;
+  bottom: 0;
+  padding: 30px;
 `;
-const AvatarButton = ({ source, onPress }: AvatarButtonProps) => (
-  <TouchableHighlight onPress={onPress} underlayColor={'transparent'}>
-    <AvatarImage size={48} source={source} />
-  </TouchableHighlight>
-);
-
-export type LikeButtonProps = Readonly<{
-  onPress?: (event: GestureResponderEvent) => void;
-  selected?: boolean;
-}>;
+const Producer = styled.Text`
+  font-weight: bold;
+  color: white;
+  box-shadow: 0px 0px 1px black;
+`;
+const AudioTitle = styled.View`
+  flex-direction: row;
+  justify-content: space-evenly;
+`;
 const Icon = styled(FontAwesome)`
   box-shadow: 0px 0px 3px black;
+  padding: 5px;
 `;
-const LikeButton = ({ onPress, selected = false }: LikeButtonProps) => (
-  <TouchableHighlight onPress={onPress} underlayColor={'transparent'}>
-    <Icon name="heart" size={48} color={selected ? 'red' : 'white'} />
-  </TouchableHighlight>
-);
+const MarqueeContainer = styled.View`
+  padding: 5px;
+`;
+const Marquee = styled(_Marquee)`
+  font-weight: bold;
+  color: white;
+  box-shadow: 0px 0px 1px black;
+`;
 
 export const UserInterface = ({ children }: UserInterfaceProps) => (
   <>
     {children}
+    <Footer>
+      <Producer>@lioncoffeerecords</Producer>
+      <AudioTitle>
+        <Icon name="music" size={14} color={'white'} />
+        <MarqueeContainer>
+          <Marquee>
+            Super long piece of text is long. The quick brown fox jumps over the
+            lazy dog.
+          </Marquee>
+        </MarqueeContainer>
+      </AudioTitle>
+    </Footer>
     <Menu>
       <AvatarButton
         source={{
