@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import * as Permissions from 'expo-permissions';
+import * as Location from 'expo-location';
 
 import { Pages, SnappableList } from './SnappableList';
 import { Container } from './styles';
@@ -68,6 +70,23 @@ const pages: Pages = [
 ];
 
 export const App = () => {
+  const [location, setLocation] = useState();
+  useEffect(() => {
+    async function getLocation() {
+      const { status } = await Permissions.askAsync(Permissions.LOCATION);
+      if (status === Permissions.PermissionStatus.DENIED) {
+        throw new Error(
+          'You need to grant location permissions to use this app.'
+        );
+      }
+      let newLocation = await Location.getCurrentPositionAsync({});
+      setLocation(newLocation);
+    }
+
+    getLocation();
+  }, []);
+
+  console.log('location', location);
   return (
     <Container>
       <SnappableList data={pages} />
