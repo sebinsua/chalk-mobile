@@ -1,26 +1,33 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { LinearGradient as _GradientBackground } from 'expo-linear-gradient';
+import { Dimensions, ImageBackground as _ImageBackground } from 'react-native';
 
 import { UserInterface } from '../UserInterface';
 import { TextContent } from './TextContent';
 import { useAudioPlayer } from './useAudioPlayer';
 
-import { GradientMediaProps } from './types';
+import { ImageMediaProps } from './types';
 
-const GradientBackground = styled(_GradientBackground)`
+const ImageBackground = styled(_ImageBackground)`
   display: flex;
   justify-content: center;
   width: 100%;
   height: 100%;
 `;
 
-export const GradientMedia = ({ source, isPlaying }: GradientMediaProps) => {
+export const ImageMedia = ({
+  producer,
+  source,
+  isLiked,
+  isPlaying,
+}: ImageMediaProps) => {
   useAudioPlayer(source.audio, isPlaying);
 
+  const { width, height } = Dimensions.get('window');
+  const imageSource = { uri: source.uri, width, height };
   return (
-    <GradientBackground colors={[...source.colors]}>
-      <UserInterface>
+    <ImageBackground source={imageSource}>
+      <UserInterface producer={producer} audio={source.audio} isLiked={isLiked}>
         {source.text ? (
           <TextContent
             style={
@@ -33,6 +40,6 @@ export const GradientMedia = ({ source, isPlaying }: GradientMediaProps) => {
           undefined
         )}
       </UserInterface>
-    </GradientBackground>
+    </ImageBackground>
   );
 };

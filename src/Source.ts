@@ -6,6 +6,7 @@ export const SOURCE_TYPE_TEXT = 'text';
 
 export type AudioSource = Readonly<{
   type: typeof SOURCE_TYPE_AUDIO;
+  title: string;
   uri: string;
 }>;
 
