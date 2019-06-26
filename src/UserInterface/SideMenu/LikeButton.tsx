@@ -2,21 +2,19 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 import { TouchableHighlight, GestureResponderEvent } from 'react-native';
-import { Avatar } from 'react-native-paper';
+import { FontAwesome } from '@expo/vector-icons';
 
-import { ImageSource } from '../Source';
-
-export type AvatarButtonProps = Readonly<{
-  source: ImageSource;
+export type LikeButtonProps = Readonly<{
   onPress?: (event: GestureResponderEvent) => void;
+  selected?: boolean;
 }>;
 
-const AvatarImage = styled(Avatar.Image)`
+const Icon = styled(FontAwesome as any)`
   box-shadow: 0px 0px 3px black;
 `;
 
-export const AvatarButton = ({ source, onPress }: AvatarButtonProps) => (
+export const LikeButton = ({ onPress, selected = false }: LikeButtonProps) => (
   <TouchableHighlight onPress={onPress} underlayColor={'transparent'}>
-    <AvatarImage size={48} source={source} />
+    <Icon name="heart" size={32} color={selected ? 'red' : 'white'} />
   </TouchableHighlight>
 );

@@ -4,9 +4,7 @@ import { Dimensions } from 'react-native';
 import Carousel, { CarouselStatic } from 'react-native-snap-carousel';
 
 import { Media } from '../Media';
-import { Source } from '../Source';
-
-export type Page = Readonly<{ id: number; source: Source }>;
+import { Page } from '../Page';
 
 export type Pages = ReadonlyArray<Page>;
 
@@ -29,14 +27,19 @@ export const SnappableList = (props: SnappableListProps) => {
       sliderHeight={viewport.height}
       inactiveSlideOpacity={1}
       inactiveSlideScale={1}
-      renderItem={({ item, index }) => (
+      renderItem={({
+        item,
+        index,
+      }: Readonly<{ item: Page; index: number }>) => (
         <Media
           id={item.id}
+          producer={item.producer}
           source={item.source}
+          isLiked={item.isLiked}
           isPlaying={currentIndex === index}
         />
       )}
-      onSnapToItem={index => setCurrentIndex(index)}
+      onSnapToItem={(index: number) => setCurrentIndex(index)}
     />
   );
 };

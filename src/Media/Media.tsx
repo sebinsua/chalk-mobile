@@ -10,22 +10,49 @@ import {
   SOURCE_TYPE_VIDEO,
   Source,
 } from '../Source';
+import { Producer } from '../Producer';
 
 export type MediaProps<TSource extends Source = Source> = Readonly<{
   id: number;
+  producer: Producer;
   source: TSource;
   isPlaying: boolean;
+  isLiked: boolean;
 }>;
 
 const _Media = (props: MediaProps) => {
-  const { id, source, isPlaying } = props;
+  const { id, producer, source, isPlaying, isLiked } = props;
   switch (source.type) {
     case SOURCE_TYPE_VIDEO:
-      return <VideoMedia id={id} source={source} isPlaying={isPlaying} />;
+      return (
+        <VideoMedia
+          id={id}
+          producer={producer}
+          source={source}
+          isLiked={isLiked}
+          isPlaying={isPlaying}
+        />
+      );
     case SOURCE_TYPE_IMAGE:
-      return <ImageMedia id={id} source={source} isPlaying={isPlaying} />;
+      return (
+        <ImageMedia
+          id={id}
+          producer={producer}
+          source={source}
+          isLiked={isLiked}
+          isPlaying={isPlaying}
+        />
+      );
     case SOURCE_TYPE_GRADIENT:
-      return <GradientMedia id={id} source={source} isPlaying={isPlaying} />;
+      return (
+        <GradientMedia
+          id={id}
+          producer={producer}
+          source={source}
+          isLiked={isLiked}
+          isPlaying={isPlaying}
+        />
+      );
   }
 };
 

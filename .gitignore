@@ -7,4 +7,5 @@ yarn-error.log
 *.key
 *.mobileprovision
 
+.DS_Store
 .vscode

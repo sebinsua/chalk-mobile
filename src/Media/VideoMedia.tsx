@@ -16,7 +16,12 @@ const VideoBackground = styled.View`
   justify-content: center;
 `;
 
-export const VideoMedia = ({ source, isPlaying }: VideoMediaProps) => {
+export const VideoMedia = ({
+  producer,
+  source,
+  isLiked,
+  isPlaying,
+}: VideoMediaProps) => {
   const [videoRef] = useVideoWithExternalAudioPlayer(source.audio, isPlaying);
 
   return (
@@ -31,7 +36,11 @@ export const VideoMedia = ({ source, isPlaying }: VideoMediaProps) => {
         style={{ width: '100%', height: '100%' }}
       />
       <VideoBackground>
-        <UserInterface>
+        <UserInterface
+          producer={producer}
+          audio={source.audio}
+          isLiked={isLiked}
+        >
           {source.text ? (
             <TextContent
               style={
