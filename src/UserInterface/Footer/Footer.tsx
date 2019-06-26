@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components/native';
 
 import { FontAwesome } from '@expo/vector-icons';
@@ -28,14 +29,19 @@ export const AudioTitle = styled.View`
   padding: 5px;
 `;
 
-export const Icon = styled(FontAwesome as any)`
+const Icon = styled(FontAwesome as any)`
   box-shadow: 0px 0px 3px black;
 
   margin-top: 2px;
   margin-right: 8px;
 `;
 
-export const MarqueeContainer = styled.View``;
+export const AudioIcon = () => <Icon name="music" size={14} color={'white'} />;
+
+export const MarqueeContainer = styled.View`
+  display: flex;
+  flex-basis: 80%;
+`;
 
 export const Marquee = styled(_Marquee)`
   font-family: open-sans-bold;

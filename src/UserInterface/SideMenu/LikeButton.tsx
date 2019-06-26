@@ -15,6 +15,10 @@ const Icon = styled(FontAwesome as any)`
 
 export const LikeButton = ({ onPress, selected = false }: LikeButtonProps) => (
   <TouchableHighlight onPress={onPress} underlayColor={'transparent'}>
-    <Icon name="heart" size={32} color={selected ? 'red' : 'white'} />
+    <Icon
+      size={32}
+      name={selected ? 'heart' : 'heart-o'}
+      color={selected ? 'red' : 'white'}
+    />
   </TouchableHighlight>
 );

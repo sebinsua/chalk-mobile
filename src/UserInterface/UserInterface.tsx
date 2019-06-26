@@ -6,7 +6,7 @@ import {
   Footer,
   ProducerName,
   AudioTitle,
-  Icon,
+  AudioIcon,
   MarqueeContainer,
   Marquee,
 } from './Footer';
@@ -48,7 +48,7 @@ export const UserInterface = ({
       <ProducerName>{producer.username}</ProducerName>
       {audio && audio.title ? (
         <AudioTitle>
-          <Icon name="music" size={14} color={'white'} />
+          <AudioIcon />
           <MarqueeContainer>
             <Marquee>{audio.title}</Marquee>
           </MarqueeContainer>

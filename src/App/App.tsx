@@ -25,12 +25,14 @@ const pages: Pages = [
       colors: ['pink', 'yellow'],
       text: {
         type: 'text',
-        content: 'Hello World!',
+        content:
+          'Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World! Hello World!',
         textColor: 'white',
       },
       audio: {
         type: 'audio',
-        title: 'Comfort Fit - Sorry',
+        title:
+          'Comfort Fit - Sorry (With A Really Really Really Really Long Title)',
         uri:
           'https://s3.amazonaws.com/exp-us-standard/audio/playlist-example/Comfort_Fit_-_03_-_Sorry.mp3',
       },
