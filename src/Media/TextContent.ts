@@ -5,4 +5,5 @@ export const TextContent = styled.Text`
   font-weight: bold;
   font-size: 24;
   z-index: 10;
+  padding: 5%;
 `;
