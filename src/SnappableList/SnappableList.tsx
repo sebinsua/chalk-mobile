@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 
 import { Dimensions } from 'react-native';
 import Carousel, { CarouselStatic } from 'react-native-snap-carousel';
+import { useRefreshControl } from './useRefreshControl';
 
 import { Media } from '../Media';
 import { Page } from '../Page';
@@ -16,6 +17,10 @@ export const SnappableList = (props: SnappableListProps) => {
   const carouselRef = useRef<CarouselStatic<{}>>();
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const refreshControl = useRefreshControl(async () => {
+    console.log('refreshing');
+  });
+
   const viewport = Dimensions.get('window');
   return (
     <Carousel
@@ -27,6 +32,7 @@ export const SnappableList = (props: SnappableListProps) => {
       sliderHeight={viewport.height}
       inactiveSlideOpacity={1}
       inactiveSlideScale={1}
+      refreshControl={refreshControl}
       renderItem={({
         item,
         index,
