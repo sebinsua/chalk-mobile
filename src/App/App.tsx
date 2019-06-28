@@ -4,12 +4,13 @@ import { ThemeProvider } from 'styled-components/native';
 import { useLocation } from './useLocation';
 import { useFonts } from './useFonts';
 import { Loading } from './Loading';
-import { Pages, SnappableList } from '../SnappableList';
-import { Container } from './styles';
+import { SnappableList, useInfinitePages } from '../SnappableList';
+import { Page } from '../Page';
 
+import { Container } from './styles';
 import { theme } from '../theme';
 
-const pages: Pages = [
+const initialPages: ReadonlyArray<Page> = [
   {
     id: 1,
     producer: {
@@ -128,13 +129,40 @@ export const App = () => {
   });
 
   const location = useLocation();
-  console.log('location', location);
+
+  const [pages, currentPageIndex, setCurrentPageIndex] = useInfinitePages(
+    async currentPages => {
+      if (!location) {
+        return [];
+      }
+
+      if (currentPages.length === 0) {
+        console.log('get initial pages using the location', location);
+        // NOTE: This is temporary, until we have a real API.
+        return initialPages;
+      }
+
+      console.log('get more pages using the location', location);
+      const lastPage = currentPages[currentPages.length - 1];
+      // TODO: At this point we would normally use lastPage.id to fetch the next pages...
+      const newPages = await Promise.resolve(
+        lastPage ? [lastPage, lastPage, lastPage, lastPage, lastPage] : []
+      );
+
+      return [...pages, ...newPages];
+    },
+    [location]
+  );
 
   return (
     <ThemeProvider theme={theme}>
       <Container>
         {fontsLoaded ? (
-          <SnappableList data={pages} />
+          <SnappableList
+            data={pages}
+            currentIndex={currentPageIndex}
+            setCurrentIndex={setCurrentPageIndex}
+          />
         ) : (
           <Loading>Loading...</Loading>
         )}

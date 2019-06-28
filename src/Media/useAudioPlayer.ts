@@ -13,6 +13,7 @@ export const useAudioPlayer = (
     async function loadAudio(as: AudioSource, ip: boolean) {
       const { sound } = await Audio.Sound.createAsync(as, {
         isMuted: false,
+        isLooping: true,
         shouldPlay: ip,
       });
 
